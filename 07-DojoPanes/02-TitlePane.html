@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+      var dojoConfig = { parseLoad: true }
+    </script>
+  </head>
+  <body>
+    <script src="dojo/dojo/dojo.js"></script>
+    <script>
+      require(['dojo/ready', 'dijit/TitlePane'], function(ready, TitlePane) {
+        ready(function() {
+          new TitlePane({
+            title: 'myTitlePane',
+            content: 'Hello myTitlePane',
+            duration: 5000
+          }).placeAt('targetId1')
+        })
+      })
+    </script>
+
+    <div id="targetId"></div>
+  </body>
+</html>

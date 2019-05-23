@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ContentPane</title>
+    <script>
+        var dojoConfig = { parseOnLoad: true }
+    </script>
+    <link rel="stylesheet" href="dojo/dijit/themes/claro/claro.css" />
+    <style type="text/css">
+        @import 'dojo/dojox/layout/resources/FloatingPane.css';
+        @import 'dojo/dojox/layout/resources/ResizeHandle.css';
+    </style>
+    <script src="dojo/dojo/dojo.js"></script>
+    <script>
+        dojo.require('dojox.layout.FloatingPane')
+        dojo.require('dijit.form.Button')
+        let myFloatingPane
+        dojo.ready(function () {
+            myFloatingPane = new dojox.layout.FloatingPane(
+            {
+                id: 'myFloatingPane',
+                resizable: true,
+                style:
+                  'position:absolute;top:0;left:0;width:100px;height:100px;visibility:hidden',
+                title: 'my floating pane'
+            },
+            dojo.byId('myFloatingPane')
+          )
+            myFloatingPane.startup()
+        })
+
+
+    </script>
+</head>
+<body class="claro">
+    <div id="myFloatingPane"></div>
+    <div data-dojo-type="dijit/form/Button"
+         data-dojo-props="label:'show me', onClick:function(){myFloatingPane.show()}">show me</div>
+</body>
+</html>

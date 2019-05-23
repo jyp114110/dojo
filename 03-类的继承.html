@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>首页</h1>
+    <script src="./dojo/dojo.js"></script>
+    <script>
+      // 人
+      dojo.declare('People', null, {
+        name: 'unknown name',
+        action: function() {
+          //doing something
+        },
+        constructor: function(name) {
+          this.name = name
+        }
+      })
+
+      // 学生
+      dojo.declare('Student', People, {
+        school: 'unknown',
+        action: function() {
+          // I am studying
+          console.log(1)
+        },
+        constructor: function(name, school) {
+          this.school = school
+        }
+      })
+
+      var s = new Student('jack', 'Harvad')
+      console.log(s) // {name:'jack',school:'Harvad'}
+      s.action() // 1  // 注意：action 方法 是在 _proto_ 原型链上的方法
+    </script>
+  </body>
+</html>

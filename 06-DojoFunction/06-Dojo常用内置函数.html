@@ -1,0 +1,70 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+  
+</head>
+<body>
+    <h1 id="selected_text">Hello</h1>
+    <button id="btn1">单击on</button><button id="btn2">单击request</button>
+    <h6 id="h6">h6</h6>
+
+
+    <script>
+        var dojoConfig = { baseUrl: "itfanr/", packages: [{ name: "test", location: "test" }] };
+    </script>
+    <script src="dojo/dojo/dojo.js"></script>
+    <script>
+        // 1
+        //require(['dojo/ready','test/person', 'test/red'], function (ready,person, red) {
+        //ready(function () {
+        //   var id = 'selected_text'
+        //  red.setRed(id)
+        //})
+        //})
+
+        // 2
+
+        require(['dojo/on', 'dojo/dom', 'dojo/dom-style', 'dojo/request', 'dojo/mouse', 'dojo/domReady!'], function (
+            on, dom, domStyle, request, mouse
+            ) {
+
+            var btn1 = dom.byId('btn1')
+            var btn2 = dom.byId('btn2')
+            var h6 = dom.byId('h6')
+
+            on(btn1, 'click', function () {
+                // h6.style.color = 'blue'
+                domStyle.set(h6,'backgroundColor','blue')
+
+            })
+
+            on(btn2, 'click', function () {
+                request.get('dataFile.txt').then(
+                    function (response) {
+                        // console.log(response)
+
+                        h6.innerHTML = '<pre>'+response+'</pre>'
+                    },
+                    function (err) {
+                        console.log(err)
+                    }
+                 )
+            })
+
+            on(h6, mouse.leave, function () {
+                domStyle.set(h6,'backgroundColor','')
+            })
+        })
+
+
+    </script>
+
+
+
+</body>
+</html>
+
+

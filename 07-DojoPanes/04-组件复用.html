@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="dojo/dijit/themes/claro/claro.css" />
+
+    <script>
+      var dojoConfig = { parseOnLoad: true }
+    </script>
+    <script src="dojo/dojo/dojo.js"></script>
+    <script>
+      require([
+        'widget/widget',
+        'dojo/parser',
+        'dojo/_base/window',
+        'dojo/domReady!'
+      ], function(widget, parser, window) {
+         parser.parse()
+        let ipt = new widget()
+        ipt.placeAt(window.body())
+
+      })
+    </script>
+  </head>
+  <body class="claro"></body>
+</html>

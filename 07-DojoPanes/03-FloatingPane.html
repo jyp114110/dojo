@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      @import 'dojo/dojox/layout/resources/FloatingPane.css';
+      @import 'dojo/dojox/layout/resources/ResizeHandle.css';
+    </style>
+    <script>
+      var dojoConfig = { parseLoad: true }
+    </script>
+    <script src="dojo/dojo/dojo.js"></script>
+    <script>
+      // 失败
+      // require([
+      //   'dojo/ready',
+      //   'dojox/layout/FloatingPane',
+      //   'dijit/form/Button'
+      // ], function(ready, FloatingPane, Button) {
+      //   ready(function() {
+      //     let myFloatingPane = new FloatingPane(
+      //       {
+      //         id: 'myFloatingPane',
+      //         resizable: true,
+      //         style:
+      //           'position:absolute;top:0;left:0;width:100px;height:100px;visibility:hidden',
+      //         title: 'my floating pane'
+      //       },
+      //       dojo.byId('myFloatingPane')
+      //     )
+      //   })
+      // })
+
+      // 成功
+    </script>
+  </head>
+  <body>
+    <div id="myFloatingPane"></div>
+    <div
+      data-dojo-type="dijit/form/Button"
+      data-dojo-props="label:'show me', onClick:function(){myFloatingPane.show()}"
+    >
+      show me
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ContentPane</title>
+    <script>
+      var dojoConfig = { parseOnLoad: true }
+    </script>
+    <link rel="stylesheet" href="dojo/dijit/themes/claro/claro.css" />
+    <style type="text/css">
+      @import 'dojo/dojox/layout/resources/FloatingPane.css';
+      @import 'dojo/dojox/layout/resources/ResizeHandle.css';
+    </style>
+    <script src="dojo/dojo/dojo.js"></script>
+    <script>
+      require(['dojo/ready', 'dijit/layout/ContentPane'], function(
+        ready,
+        ContentPane
+      ) {
+        ready(function() {
+          new ContentPane({
+            content: '<h1>我是 ContentPane</h1>',
+            style: 'color:red'
+          }).placeAt('targetId1')
+        })
+      })
+    </script>
+  </head>
+  <body class="claro">
+    <div id="targetId1">
+      ContentPane
+    </div>
+  </body>
+</html>

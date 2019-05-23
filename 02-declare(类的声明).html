@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./dojo/dojo.js"></script>
+    <script>
+      /**
+      dojo 类的声明
+      类是创建对象的对象
+      语法
+        dojo.declare(className,superClass,props)
+
+        className : 类的名称
+        superClass: 指定父类的类型。如果不存在，可以为null。由于 Dojo 中 支持多类继承，因此 superClass可以是一个包含所有父类的数组。
+        props: 是一个对象，其中包含该类的所有字段以及方法。在props中可以定义定类一个特殊函数， constructor 在该类型被实例化的时候会被自动调用到，相当于构造函数。
+    */
+
+      dojo.declare('People', null, {
+        name: '小明',
+        age: 18,
+        constructor: function(name, age) {
+          this.name = name
+          this.age = age
+        }
+      })
+
+      var p = new People('小红', 18)
+      console.log(p)
+    </script>
+  </body>
+</html>

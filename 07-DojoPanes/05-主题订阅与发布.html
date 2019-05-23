@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <script src="dojo/dojo/dojo.js"></script>
+    <script>
+      require(['dojo/topic', 'dojo/on', 'dojo/dom', 'dojo/domReady!'], function(
+        topic,
+      
+        on,
+          dom
+      ) {
+        let handle = topic.subscribe('sports', function(e) {
+          dom.byId('output').innerHTML = e.msg
+        })
+
+        on(dom.byId('publish'), 'click', function() {
+          topic.publish('sports', { msg: '小王' })
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <button type="button" id="publish">请单击</button>
+    <div id="output">输出信息</div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./dojo/dojo.js"></script>
+    <script>
+      // dojo.addOnLoad(function() {
+      //   dojo.create('h1', { innerHTML: 'Hello DOJO' }, dojo.body())
+      // })
+
+      request
+        .get(
+          'getTime', //请求地址
+          {
+            query: (this.id = 'successbtn'),
+            handleAs: 'json' //返回的是json数据
+          }
+        )
+        .then(
+          function(data) {
+            //发送请求成功后的操作
+            alert('获取成功' + data.data)
+            //发送请求失败后的操作
+          },
+          function(error) {
+            alert('获取失败' + error)
+          }
+        )
+    </script>
+  </body>
+</html>

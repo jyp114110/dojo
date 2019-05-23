@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./dojo/dojo.js"></script>
+    <script>
+      dojo.addOnLoad(function() {
+        dojo.declare('Foo', null, {
+          staticFields: { num: 0 },
+          add: function() {
+            this.staticFields.num++
+          }
+        })
+
+        var fn1 = new Foo()
+        var fn2 = new Foo()
+        console.log(fn1.staticFields.num) // 0
+
+        fn1.add()
+        fn2.add()
+        console.log(fn1.staticFields.num) // 2
+      })
+    </script>
+  </body>
+</html>
